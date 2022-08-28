@@ -3,25 +3,29 @@ import "./App.css";
 import WorkerBuilder from "./worker/worker-builder";
 import Worker from "./worker/worker";
 
-function App() {
-  const runWorker = () => {
-    // initiate worker
-    const worker = new WorkerBuilder(Worker);
+const numbers: Array<number> = [...Array(5000000)].map(
+  (e) => ~~(Math.random() * 1000000)
+);
 
-    // post message to worker
-    worker.postMessage("Hello from JS thread");
+const runNormalWorker = () => {
+  // initiate worker
+  const worker = new WorkerBuilder(Worker);
 
-    // receive message from worker
-    worker.onmessage = (message) => {
-      console.log("worker message: ", message.data);
-    };
+  // post message to worker
+  worker.postMessage(numbers);
 
-    // receive error from worker
-    worker.onerror = (error) => {
-      console.log("worker error: ", error);
-    };
+  // receive message from worker
+  worker.onmessage = (message) => {
+    console.log("worker message: ", message.data);
   };
 
+  // receive error from worker
+  worker.onerror = (error) => {
+    console.log("worker error: ", error.message);
+  };
+};
+
+function App() {
   return (
     <div className="app">
       <img className="logo" alt="react-logo" src={Logo} />
@@ -31,7 +35,12 @@ function App() {
       >
         Web worker
       </a>
-      <button onClick={runWorker}>Run Worker</button>
+      <button
+        title="Normal Web worker implementation"
+        onClick={runNormalWorker}
+      >
+        Run Normal Worker
+      </button>
     </div>
   );
 }

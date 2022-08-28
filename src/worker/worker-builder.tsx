@@ -1,3 +1,4 @@
+// normal web worker implementation
 export default class WorkerBuilder extends Worker {
   constructor(worker: () => void) {
     super(worker);
