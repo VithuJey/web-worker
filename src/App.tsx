@@ -1,7 +1,11 @@
 import Logo from "./assets/react.svg";
 import "./App.css";
 import WorkerBuilder from "./worker/worker-builder";
-import Worker from "./worker/worker";
+import NormalWorker from "./worker/normal-worker";
+import { worker as OtherWorker } from "./worker/other-worker";
+import { createWorkerFactory, useWorker } from "@shopify/react-web-worker";
+
+const createWorker = createWorkerFactory(() => import("./worker/other-worker"));
 
 const numbers: Array<number> = [...Array(5000000)].map(
   (e) => ~~(Math.random() * 1000000)
@@ -9,7 +13,7 @@ const numbers: Array<number> = [...Array(5000000)].map(
 
 const runNormalWorker = () => {
   // initiate worker
-  const worker = new WorkerBuilder(Worker);
+  const worker = new WorkerBuilder(NormalWorker);
 
   // post message to worker
   worker.postMessage(numbers);
@@ -26,6 +30,17 @@ const runNormalWorker = () => {
 };
 
 function App() {
+  const worker = useWorker(createWorker);
+
+  const runShopifyWorker = async () => {
+    try {
+      const result = await worker.worker(numbers);
+      console.log({ result });
+    } catch (error) {
+      console.log("error ", error);
+    }
+  };
+
   return (
     <div className="app">
       <img className="logo" alt="react-logo" src={Logo} />
@@ -40,6 +55,12 @@ function App() {
         onClick={runNormalWorker}
       >
         Run Normal Worker
+      </button>
+      <button
+        title="Normal Web worker implementation"
+        onClick={runShopifyWorker}
+      >
+        Run Shopify Worker
       </button>
     </div>
   );
