@@ -44,7 +44,6 @@ export default () => {
         timeoutId,
       })
     );
-    console.log({ returnMessage });
 
     // post message to JS thread
     self.postMessage(returnMessage);
