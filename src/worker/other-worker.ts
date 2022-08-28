@@ -1,8 +1,8 @@
-function callAPI() {
-  return fetch("https://jsonplaceholder.typicode.com/comments");
-}
+export default function worker(data: Array<number>) {
+  function callAPI() {
+    return fetch("https://jsonplaceholder.typicode.com/comments");
+  }
 
-export function worker(data: Array<number>) {
   const nums = data;
 
   // heavy computational task: sort 5000000 random numbers
