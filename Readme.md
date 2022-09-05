@@ -1,4 +1,4 @@
-# Web worker in React 🧑‍🚀
+# Web worker in React 🕸
 
 ## 🚀 Project Structure
 
