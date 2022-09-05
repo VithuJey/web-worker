@@ -5,11 +5,20 @@
   text-align: center;
 }
 
-.app {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 25em;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+}
+
+button {
+  margin-right: 1em;
 }
 
 .logo {
