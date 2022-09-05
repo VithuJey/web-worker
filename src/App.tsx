@@ -2,8 +2,23 @@ import Logo from "./assets/react.svg";
 import "./App.css";
 import WorkerBuilder from "./worker/worker-builder";
 import Worker from "./worker/worker";
+import { useEffect, useState } from "react";
 
 function App() {
+  // time state
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  // hook to update time state after each second
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, []);
+
   const runWorker = () => {
     // initiate worker
     const worker = new WorkerBuilder(Worker);
@@ -24,13 +39,7 @@ function App() {
 
   return (
     <div className="app">
-      <img className="logo" alt="react-logo" src={Logo} />
-      <a
-        href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API"
-        target="_blank"
-      >
-        Web worker
-      </a>
+      <h1>{time}</h1>
       <button onClick={runWorker}>Run Worker</button>
     </div>
   );
