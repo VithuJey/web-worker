@@ -1,7 +1,7 @@
 import { useWorker } from "@koale/useworker";
 import worker from "../worker/worker-two";
 
-export default function useKoalaWorker(
+export default function useKoaleWorker(
   nums: Array<number>
 ): Array<() => Promise<void>> {
   // koale web worker hook

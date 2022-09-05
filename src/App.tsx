@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import worker from "./worker/worker-two";
 import useShopifyWorker from "./hooks/useShopifyWorker";
-import useKoalaWorker from "./hooks/useKoalaWorker";
+import usekoaleWorker from "./hooks/useKoaleWorker";
 import useNormalWorker from "./hooks/useNormalWorker";
 
 // complex array constant
@@ -32,8 +32,8 @@ function App() {
   const [runNormalWorker] = useNormalWorker([...nums]);
   // shopify worker
   const [runShopifyWorker] = useShopifyWorker([...nums]);
-  // koala worker
-  const [runKoaleWorker] = useKoalaWorker([...nums]);
+  // koale worker
+  const [runKoaleWorker] = usekoaleWorker([...nums]);
 
   return (
     <div className="container">
