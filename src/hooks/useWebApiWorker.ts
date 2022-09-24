@@ -4,21 +4,21 @@ export default function useWebApiWorker(
   // call Web API worker without using any libs
   const runWebApiWorker = () => {
     // initiate worker
-    const workerBuilder = new Worker("./worker/webApiWorker.ts");
+    const worker = new Worker("./worker/webApiWorker.ts");
 
     // post message to worker
-    workerBuilder.postMessage(nums);
+    worker.postMessage(nums);
 
     // receive message from worker
-    workerBuilder.onmessage = (message) => {
+    worker.onmessage = (message) => {
       console.log("worker message: ", message.data);
-      workerBuilder.terminate();
+      worker.terminate();
     };
 
     // receive error from worker
-    workerBuilder.onerror = (error) => {
+    worker.onerror = (error) => {
       console.log("worker error: ", error.message);
-      workerBuilder.terminate();
+      worker.terminate();
     };
   };
   return [runWebApiWorker];
