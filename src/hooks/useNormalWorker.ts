@@ -1,13 +1,10 @@
-import WorkerBuilder from "../worker/worker-builder";
-import worker from "../worker/worker-one";
-
 export default function useNormalWorker(
   nums: Array<number>
 ): Array<() => void> {
   // call normal-worker without using any libs
   const runNormalWorker = () => {
     // initiate worker
-    const workerBuilder = new WorkerBuilder(worker);
+    const workerBuilder = new Worker("./worker/webApiWorker.ts");
 
     // post message to worker
     workerBuilder.postMessage(nums);

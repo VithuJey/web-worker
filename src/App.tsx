@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import worker from "./worker/worker-two";
+import worker from "../public/worker/libWorker";
 import useShopifyWorker from "./hooks/useShopifyWorker";
 import usekoaleWorker from "./hooks/useKoaleWorker";
 import useNormalWorker from "./hooks/useNormalWorker";

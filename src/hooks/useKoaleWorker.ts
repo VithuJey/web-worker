@@ -1,5 +1,5 @@
 import { useWorker } from "@koale/useworker";
-import worker from "../worker/worker-two";
+import worker from "../../public/worker/libWorker";
 
 export default function useKoaleWorker(
   nums: Array<number>

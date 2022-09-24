@@ -1,8 +1,9 @@
 import { createWorkerFactory, useWorker } from "@shopify/react-web-worker";
-import React from "react";
 
 // init shopify createWorkerFactory
-const createWorker = createWorkerFactory(() => import("../worker/worker-two"));
+const createWorker = createWorkerFactory(
+  () => import("../../public/worker/libWorker")
+);
 
 export default function useShopifyWorker(
   nums: Array<number>
