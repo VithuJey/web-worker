@@ -7,15 +7,14 @@ Inside this project, you'll see the following folders and files:
 ```
 /
 ├── public/
+│   └── worker/
+│   │    └── libWorker.ts
+│   │    └── webApiWorker.ts
 ├── src/
 │   ├── hooks/
 │   │   └── useKoaleWorker.ts
 │   │   └── useWebApiWorker.ts
 │   │   └── useShopifyWorker.ts
-│   └── worker/
-│   │    └── worker-builder.ts
-│   │    └── worker-one.ts
-│   │    └── worker-two.ts
 │   └── App.tsx
 │   └── main.tsx
 └── package.json
@@ -23,7 +22,7 @@ Inside this project, you'll see the following folders and files:
 
 The `hooks/` directory has three hooks to run the web workers. `useWebApiWorker.ts` runs using inbuilt web-worker API. `useKoaleWorker.ts` runs using [Koale](https://github.com/alewin/useworker) library. `useShopifyWorker.ts` runs using [Shopify](https://github.com/Shopify/quilt/tree/main/packages/web-worker) library.
 
-The `worker` directory has `worker-builder.ts` to build `WorkerBuilder` class to access web-worker API. The `worker-one.ts` and `worker-two.ts` files has function that is going to run on web workers. `worker-one.ts` funciton is to run on `useWebApiWorker` and `worker-two.ts` funciton is to run on `useKoaleWorker` and `useShopifyWorker` hooks.
+The `worker` directory contains worker scripts `libWorker.ts` and `webApiWorker.ts`. The `libWorker.ts` and `webApiWorker.ts` files has function that is going to run on web workers. `webApiWorker.ts` funciton is to run on `useWebApiWorker` and `libWorker.ts` funciton is to run on `useKoaleWorker` and `useShopifyWorker` hooks.
 
 Any static assets, like images, can be placed in the `public/` directory.
 
