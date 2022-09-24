@@ -1,7 +1,4 @@
-import Logo from "./assets/react.svg";
 import "./App.css";
-import WorkerBuilder from "./worker/worker-builder";
-import Worker from "./worker/worker";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -21,18 +18,18 @@ function App() {
 
   const runWorker = () => {
     // initiate worker
-    const worker = new WorkerBuilder(Worker);
+    const worker = new Worker("./worker/worker.ts");
 
     // post message to worker
     worker.postMessage("Hello from JS thread");
 
     // receive message from worker
-    worker.onmessage = (message) => {
+    worker.onmessage = (message: { data: string }) => {
       console.log("worker message: ", message.data);
     };
 
     // receive error from worker
-    worker.onerror = (error) => {
+    worker.onerror = (error: any) => {
       console.log("worker error: ", error);
     };
   };
