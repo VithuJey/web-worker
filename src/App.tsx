@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import worker from "../public/worker/libWorker";
 import useShopifyWorker from "./hooks/useShopifyWorker";
 import usekoaleWorker from "./hooks/useKoaleWorker";
-import useNormalWorker from "./hooks/useNormalWorker";
+import useWebApiWorker from "./hooks/useWebApiWorker";
 
 // complex array constant
 const nums: Array<number> = [...Array(5000000)].map(
@@ -28,8 +28,8 @@ function App() {
     };
   }, []);
 
-  // normal woker
-  const [runNormalWorker] = useNormalWorker([...nums]);
+  // web api woker
+  const [runWebApiWorker] = useWebApiWorker([...nums]);
   // shopify worker
   const [runShopifyWorker] = useShopifyWorker([...nums]);
   // koale worker
@@ -43,19 +43,19 @@ function App() {
           Run Function
         </button>
         <button
-          title="Normal web worker implementation"
-          onClick={runNormalWorker}
+          title="Run function using Web API worker implementation"
+          onClick={runWebApiWorker}
         >
-          Run Normal Worker
+          Run Web API Worker
         </button>
         <button
-          title="@shopify/react-web-worker web worker implementation"
+          title="Run function using @shopify/react-web-worker web worker implementation"
           onClick={runShopifyWorker}
         >
           Run Shopify Worker
         </button>
         <button
-          title="@koale/useworker web worker implementation"
+          title="Run function using @koale/useworker web worker implementation"
           onClick={runKoaleWorker}
         >
           Run Koale Worker

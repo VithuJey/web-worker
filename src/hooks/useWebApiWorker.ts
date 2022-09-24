@@ -1,8 +1,8 @@
-export default function useNormalWorker(
+export default function useWebApiWorker(
   nums: Array<number>
 ): Array<() => void> {
-  // call normal-worker without using any libs
-  const runNormalWorker = () => {
+  // call Web API worker without using any libs
+  const runWebApiWorker = () => {
     // initiate worker
     const workerBuilder = new Worker("./worker/webApiWorker.ts");
 
@@ -21,5 +21,5 @@ export default function useNormalWorker(
       workerBuilder.terminate();
     };
   };
-  return [runNormalWorker];
+  return [runWebApiWorker];
 }
