@@ -17,6 +17,8 @@ function App() {
   // time state
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
   // hook to update time state after each second
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -37,7 +39,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>{time}</h1>
+      <h1 style={{ color: `#${randomColor}` }}>{time}</h1>
       <div className="wrapper">
         <button title="Run function without web worker" onClick={runFunction}>
           Run Function
