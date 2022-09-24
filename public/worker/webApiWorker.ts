@@ -1,3 +1,5 @@
+importScripts("./helper/callAPI.ts");
+
 self.onmessage = (message) => {
   const nums = message.data;
 
@@ -43,7 +45,3 @@ self.onmessage = (message) => {
   // post message to JS thread
   self.postMessage(returnMessage);
 };
-
-function callAPI() {
-  return fetch("https://jsonplaceholder.typicode.com/comments");
-}
