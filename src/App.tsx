@@ -35,8 +35,16 @@ function App() {
   const [runKoaleWorker] = usekoaleWorker([...nums]);
 
   return (
-    <div className="container">
-      <h1 style={{ color: `#${randomColor}` }}>{time}</h1>
+    <div
+      className="container"
+      style={{
+        backgroundColor:
+          randomColor != "111111" || randomColor != "ffffff"
+            ? `#${randomColor}`
+            : "#000",
+      }}
+    >
+      <h1 style={{ color: "#fff" }}>{time}</h1>
       <div className="wrapper">
         <button title="Run function without web worker" onClick={runFunction}>
           Run Function
