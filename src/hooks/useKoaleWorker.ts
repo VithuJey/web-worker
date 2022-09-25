@@ -6,7 +6,7 @@ export default function useKoaleWorker(
 ): Array<() => Promise<void>> {
   // koale web worker hook
   const [koaleWorker] = useWorker(worker);
-  // call other-worker using shopify web worker
+
   const runKoaleWorker = async () => {
     try {
       const result = await koaleWorker(nums);

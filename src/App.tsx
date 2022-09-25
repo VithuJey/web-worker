@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import worker from "../public/worker/libWorker";
-import useShopifyWorker from "./hooks/useShopifyWorker";
 import usekoaleWorker from "./hooks/useKoaleWorker";
 import useWebApiWorker from "./hooks/useWebApiWorker";
 
@@ -32,8 +31,6 @@ function App() {
 
   // web api woker
   const [runWebApiWorker] = useWebApiWorker([...nums]);
-  // shopify worker
-  const [runShopifyWorker] = useShopifyWorker([...nums]);
   // koale worker
   const [runKoaleWorker] = usekoaleWorker([...nums]);
 
@@ -49,12 +46,6 @@ function App() {
           onClick={runWebApiWorker}
         >
           Run Web API Worker
-        </button>
-        <button
-          title="Run function using @shopify/react-web-worker web worker implementation"
-          onClick={runShopifyWorker}
-        >
-          Run Shopify Worker
         </button>
         <button
           title="Run function using @koale/useworker web worker implementation"
