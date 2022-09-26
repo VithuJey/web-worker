@@ -19,11 +19,11 @@ Inside this project, you'll see the following folders and files:
 └── package.json
 ```
 
-The `hooks/` directory has three hooks to run the web workers. `useWebApiWorker.ts` runs using inbuilt web-worker API. `useKoaleWorker.ts` runs using [Koale](https://github.com/alewin/useworker) library.
+The `worker` directory under `public` directory contains worker scripts `libWorker.ts` and `webApiWorker.ts`. The `libWorker.ts` and `webApiWorker.ts` files has function that is going to run on web workers. `webApiWorker.ts` will run using `useWebApiWorker` hook and `libWorker.ts` will run using `useKoaleWorker` hook.
 
-The `worker` directory contains worker scripts `libWorker.ts` and `webApiWorker.ts`. The `libWorker.ts` and `webApiWorker.ts` files has function that is going to run on web workers. `webApiWorker.ts` funciton is to run on `useWebApiWorker` and `libWorker.ts` funciton is to run on `useKoaleWorker` hook.
+The `hooks` directory under `src` directory has two hooks to run the web workers. `useWebApiWorker.ts` runs using inbuilt Web Workers API. `useKoaleWorker.ts` runs using [Koale](https://github.com/alewin/useworker) library.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Any other static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -38,4 +38,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more about Web workers?
 
-Feel free to check [Mozilla Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) documentation.
+Feel free to check [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) documentation on MDN.
