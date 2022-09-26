@@ -38,16 +38,15 @@ function App() {
     <div
       className="container"
       style={{
-        backgroundColor:
-          randomColor != "111111" || randomColor != "ffffff"
-            ? `#${randomColor}`
-            : "#000",
+        backgroundColor: ["111111", "ffffff"].includes(randomColor)
+          ? "#000"
+          : `#${randomColor}`,
       }}
     >
       <h1 style={{ color: "#fff" }}>{time}</h1>
       <div className="wrapper">
         <button title="Run function without web worker" onClick={runFunction}>
-          Run Function
+          Run Without Worker
         </button>
         <button
           title="Run function using Web API worker implementation"
