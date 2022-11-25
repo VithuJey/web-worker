@@ -20,3 +20,36 @@
 button {
   margin-right: 1em;
 }
+
+.toast {
+  position: absolute;
+  top: 40px;
+
+  background: rgba(255, 255, 255, 0.44);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 0.5px solid;
+  border-color: rgba(255, 255, 255, 0.4);
+
+  padding: 8px;
+}
+
+.toast > p {
+  color: #111;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .toast {
+    background: rgba(35, 35, 35, 0.44);
+    border-color: rgba(35, 35, 35, 0.4);
+  }
+
+  .toast > p {
+    color: #fff;
+  }
+}
